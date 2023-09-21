@@ -1,0 +1,30 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "BaconBoss Hub | H&M Loooptopia", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+_G.inf = true
+
+function inf()
+     while _G.inf == true do
+        local args = {
+            [1] = Vector3.new(-155.08995056152344, 10.840339660644531, -107.63313293457031)
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Packages"):WaitForChild("_Index"):WaitForChild("sleitnick_knit@1.5.1"):WaitForChild("knit"):WaitForChild("Services"):WaitForChild("PulsePickupService"):WaitForChild("RE"):WaitForChild("pulsePickupCoinSignal"):FireServer(unpack(args))
+        wait(0.0000000000000000000000000000000000001)
+    end 
+end
+
+local TpTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+TpTab:AddToggle({
+    Name = "INF pink thing?",
+    Default = false,
+    Callback = function(Value)
+        _G.inf = Value
+        inf()
+    end    
+})
